@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900"
+	rel="stylesheet">
+<link href="/bootstrap/css/blog.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<div class="container" th:fragment="navbar">
+		<header class="blog-header py-3">
+			<div
+				class="row flex-nowrap justify-content-between align-items-center">
+				
+				<div class="col-4 pt-1">
+					<a sec:authorize="isAuthenticated()" class="text-muted" th:href="@{/logout}">Logout</a>
+					<a sec:authorize="isAnonymous()" class="text-muted" th:href="@{/login}">Subscribe</a>
+				</div>
+				<div class="col-4 text-center">
+					<a class="blog-header-logo text-dark" th:href="@{/posts}">MyBlog</a>
+				</div>
+				<div class="col-4 d-flex justify-content-end align-items-center">
+
+					<a class="btn btn-sm btn-outline-primary" th:href="@{/newpost}">New
+						Post</a>
+				</div>
+			</div>
+		</header>
+
+		<div class="nav-scroller py-1 mb-2">
+			<nav class="nav d-flex justify-content-between">
+				<a class="p-2 text-muted" th:href="@{/posts?category=Java}">Java</a>
+				<a class="p-2 text-muted" th:href="@{/posts?category=C Sharp}">C#</a> <a
+					class="p-2 text-muted" th:href="@{/posts?category=HTML}">HTML</a> <a
+					class="p-2 text-muted" th:href="@{/posts?category=Design}">Design</a>
+				<a class="p-2 text-muted" th:href="@{/posts?category=JavaScript}">JavaScript</a>
+				<a class="p-2 text-muted" th:href="@{/posts?category=Python}">Python</a>
+				<a class="p-2 text-muted" th:href="@{/posts?category=PHP}">PHP</a> <a
+					class="p-2 text-muted" th:href="@{/posts?category=Ruby}">Ruby</a> <a
+					class="p-2 text-muted" th:href="@{/posts?category=Perl}">Perl</a> <a
+					class="p-2 text-muted"
+					th:href="@{/posts?category=Spring Framework}">Spring Framework</a>
+				<a class="p-2 text-muted"
+					th:href="@{/posts?category=Entity Framework}">Entity Framework</a>
+				<a class="p-2 text-muted" th:href="@{/posts?category=Others}">Others</a>
+			</nav>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900"
+	rel="stylesheet">
+<link href="/bootstrap/css/blog.css" rel="stylesheet">
+
+<title>MyBlog</title>
+</head>
+
+<body>
+	<div th:replace="fragments/cabecalho :: navbar"></div>
+
+	<main role="main" class="container">
+		<div
+			class="row d-flex justify-content-center mt-5 site-main site-content"
+			th:each="post : ${post}">
+			<div class="col-md-8 col-sm-12 single text-left">
+				<div class="excerpt-single">
+
+					<div class="blog-post">
+						<h2 class="blog-post-title">
+							<span th:text="${post.titulo}"></span>
+						</h2>
+						<p class="blog-post-meta">
+							<span th:text="${post.data}"></span> by <span
+								class="d-inline-block mb-2 text-primary" th:text="${post.autor}"></span>
+						</p>
+						<section>
+							<p class="card-text" style="margin-top: 40px;">
+								<span th:utext="${post.texto}"></span>
+							</p>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+
+<div th:replace="fragments/rodape :: footer"></div>
+
+</html>
